@@ -4,3 +4,4 @@ learning javascript, https://developer.mozilla.org/en-US/docs/Learn/JavaScript/F
 
 ### vids:
 1. review of fundamental tools, gh/cloud9/mdn/getbootstrap/css https://www.loom.com/share/e6a9f6d7b7664a57ad1ce9f02b5d5b31
+2. javascript 1: introduction to guerySelector, DOM, javascript variables, and functions: https://www.loom.com/share/03fe4fe4b85146f89489d336b3f5e0a4
