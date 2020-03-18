@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- create a number guessing game in html and javascript, where a ui will present
+the user with the opportunity to supply a guess number, and a random number will be
+created before hand -- ui will react -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Number guessing game, CIS 3110 Spring 2020</title>
+        <link rel="stylesheet" href="game.css">        
+    </head>
+<body>
+    <h1>Cal Poly CIS 3110 Number Guessing Game, Spring 2020</h1>        
+    <p> this program has selected a random number between 1 & 100. 
+    See if you can guess it in 10 turns or less. We will tell you if 
+    your guess was too high or too low. </p>  
+    <div class="form">
+        <label for="guessField"> Enter your guess: </label>
+        <input type="text" id="guessField" class="guessField">
+        <input type="submit" value="Submit your guess" class="guessSubmit">
+    </div>
+    <div class="resultParas">
+        <p class="guesses">g</p>
+        <p class="lastResult">l</p>
+        <p class="lowOrHi">loh</p>
+    </div>
+        
+<script>
+    //variables go here, querySelector grabs control of corresponding html elements, by class
+    let randomNumber = Math.floor(Math.random() *100) + 1; 
+    const guesses = document.querySelector('.guesses');
+    const lastResult = document.querySelector('.lastResult');
+    const lowOrHi = document.querySelector('.lowOrHi'); //connecting code to UI/html
+    const guessSubmit = document.querySelector('.guessSubmit');
+    const guessField = document.querySelector('.guessField'); //get its value
+    let guessCount = 1; //start with the first guess
+    let resetButton; //nil to start, not initialized yet at the start
+    
+    //check the guess submitted by the user
+    function checkGuess(){ //analyze guessField's value
+        
+        //set the text value of 'guesses' paragraph
+    }
+    
+    
+    //evaluate the guess, whether it equals the randomly generated number - extensive
+    
+    //add a click event to the checkGuess button
+    guessSubmit.addEventListener('click', checkGuess);
+    
+    //declare whether they are successful -- empty parameters 
+    function setGameOver(){
+        //disable the guess field, and the guess submit button
+        //create a button on the screen that enables the user to reset the game board
+        
+        resetButton = document.createElement('button');//create an html button
+        resetButton.textContent = 'Start a new Game!';
+        //add the button to the body of the html document:
+        document.body.appendChild(resetButton);//add the new button to the body!
+        resetButton.addEventListener('click', resetGame); //adds functionality to button...
+    
+    }
+    
+    //erase the game board
+    function resetGame(){
+        //reset the guess count back to 1...
+        
+        //empty all the paragraphs to empty, all of them at once...
+    }
+    
+    //remove the reset button:
+    resetButton.parentNode.removeChild(resetButton);//
+    //clean up, set the inputs to enabled!
+    guessField.disabled = false; 
+    //reset the random, guessable number
+        
+        
+</script>
+        
+</body>
+</html>
