@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>//respond to the cookie, when the page loads
+//read the cookie, and capture the name of the user, if it's empty
+    function setCookie(cname, cvalue, exdays)
+    {
+         console.log("entering set cookie routine");
+         var d = new Date();
+         d.setTime(d.getTime() + (exdays*24*60*60*1000));
+         var expires = "expires=" + d.toGMTString();
+         document.cookie = cname + "="+ cvalue + "; " + expires; 
+    }
+    
+    function getCookie(cname) //read existing cookies, if they are there...
+    {
+        console.log("loading get cookie...");
+        
+        var name = cname + "=";
+        console.log(`document cookie list is ${document.cookie}`);
+        var ca = document.cookie.split(";"); //!
+        console.log("displaing ca: " + ca);
+        
+        for(var i = 0; i < ca.length; i++)
+        {
+            var c = ca[i];
+            console.log(`c at i: ${ca[i]}`);
+            while(c.charAt(0)==' ') c = c.substring(1);
+            if(c.indexOf(name) == 0){
+                return c.substring(name.length, c.length);
+            }
+        }
+        
+        return "";    
+    }
+    
+    //trigger get, and set, depending on...
+    function checkCookie()
+    { 
+        var user=getCookie("username"); //username is cookiename set by me
+        if(user != ""){
+            alert("Welcome again, " + user);
+        }else{
+            user=prompt("Please enter your name: ", ""); //supply text input
+            if(user != "" && user != null){
+                console.log("no cookie exists, with that name....");
+                setCookie("username", user, 30); //expiration period
+            }
+        }
+    }
+</script>
+</head>
+<body onload="checkCookie()"></body>
+</html>
