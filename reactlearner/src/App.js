@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1 className="text-center">ToDo App in ReactJS</h1>
+        <h1 className="text-center">Beginning React.js: Item Creation and Deletion</h1>
         <Todos />
       </div>
     );
