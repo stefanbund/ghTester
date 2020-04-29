@@ -1,31 +1,71 @@
 import React, { Component }  from 'react';
+// eslint-disable-next-line
+import Item from './item';
+// eslint-disable-next-line
+import DataManager from './dataManager';
 
-import item from './item';
-import dataManager from './dataManager';
-
-class items extends Component { 
+class Items extends Component { 
     
  state = {
-    items : [ ]
-  
+    items : [ 
+     {
+       id: 1,
+       value: "item 1",
+       isDone: false
+     },
+     {
+      id: 2,
+      value: "item 2",
+      isDone: true
+     },
+     {
+      id: 3, 
+      value: "item 3",
+      isDone: false
+     }
+    ]
  }; //object, 
  
  getTime(){             //provide a timestamp for the item
      let d = new Date();
      var n = d.getTime();
-     return n ;
+     return n ; //readable timestamp
  }
  
  handleDelete = item => {
      //manipulate state
+     const items = this.state.items.filter((t) => {
+      return t.id !== item
+     });
+     this.setState({items});
  }
  
  handleDone = item => {
      //when finished with update
+     const items = [...this.state.items];
+     items.map((t) => {
+      if(t.id === item.id) {
+       t.isDone = !t.isDone;
+      }
+       return t; 
+     });
+     this.setState({items});
  }
  
- addNewItem = item => {
-     
+ addNewItem = value => { //called from the dataManager
+     if(value){
+      const items = [...this.state.items];
+      items.push(
+        {
+         id: this.getTime(),
+         value: value, 
+         isDone: false
+        }
+       );
+       this.setState({dataManagerValue: ", items"})
+     }else{ //if the user leaves it blank
+      console.log("Please add text to your new item");
+     }
  }
  
  render(){
@@ -34,7 +74,7 @@ class items extends Component {
          <tbody>
           {this.state.items.map((item, index) => (
           <tr key={item.id}>
-            <item index={index+1} item={item}
+            <Item index={index+1} item={item}
              fooDelete={this.handleDelete} fooDoneDone={this.handleDone} />
            </tr>
           ))}
@@ -52,4 +92,4 @@ class items extends Component {
     
 }
 
-export default items; 
+export default Items; 

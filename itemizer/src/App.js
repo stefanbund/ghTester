@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Items from './components/items';
 
-function App()  {
+ class App  extends Component {
     render(){
     return (
       <div className="container">
@@ -12,5 +12,6 @@ function App()  {
     );
   }
 }
+
 
 export default App;

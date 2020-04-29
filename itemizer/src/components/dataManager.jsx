@@ -1,12 +1,28 @@
 import React, {Component} from 'react';
 
-class dataManager extends Component { 
- state = {}; //manipulate, add to, update, delete from the state
- 
+class DataManager extends Component { 
+    state = {
+     defaultValue : "",
+     value : this.props.dataManagerValue
+    }; //manipulate, add to, update, delete from the state
  
  handleChange = (e) => {
-  //update the local component's state
-  //TODO
+      //update the local component's state
+      this.setState({
+       value: e.target.value
+      });
+ }
+ 
+ clearInput = () => {
+       //clear existing value inside a text box
+       document.getElementById("itemValue").value = ""; //empty
+       //update local component state
+       this.setState({value:""});
+ }
+ 
+ dataManager = () => {
+  this.props.foodataManager(this.state.value);
+  this.clearInput(); //clear existing values once we update the value of the state
  }
  
  render(){
@@ -24,4 +40,4 @@ class dataManager extends Component {
  }
 }
 
-export default dataManager;
+export default DataManager;

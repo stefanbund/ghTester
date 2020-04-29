@@ -1,6 +1,6 @@
 import React, {Component } from 'react';
 
-class item extends Component { 
+class Item extends Component { 
     
     render(){
         return(
@@ -10,7 +10,8 @@ class item extends Component {
             </td>
             <td style={{width: 15}} className="text-center">
             <input type="checkbox"
-            defaultChecked={this.props.item.isDone} onChange={() => this.props.fooDoneDone(this.props.item)} />
+            defaultChecked={this.props.item.isDone} 
+            onChange={() => this.props.fooDoneDone(this.props.item)} />
             </td>
             <td>
             {
@@ -27,9 +28,11 @@ class item extends Component {
     }
     
     renderitem(){
-        let x = "";
-        return x; //TODO
+        if(this.props.item.isDone)
+            return <s>{this.props.item.value}</s>;
+        else
+            return this.props.item.value; 
     }
 }
 
-export default item; 
+export default Item; 
