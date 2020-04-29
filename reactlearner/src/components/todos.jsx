@@ -81,7 +81,8 @@ class Todos extends Component {
                     ))}
                     <tr>
                         <td colSpan="4" className="text-center">
-                            <AddTodo fooAddTodo={this.addNewTodo} addTodoValue={this.state.addTodoValue} />
+                            <AddTodo fooAddTodo={this.addNewTodo} 
+                            addTodoValue={this.state.addTodoValue} />
                         </td>
                     </tr>
                 </tbody>

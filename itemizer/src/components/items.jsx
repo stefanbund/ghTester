@@ -81,7 +81,7 @@ class Items extends Component {
           
           <tr>
            <td colSpan="4" className="text-center">
-             <dataManager foodataManager={this.addNewItem}
+             <DataManager foodataManager={this.addNewItem}
                dataManagerValue={this.state.dataManagerValue} />
           </td>
             </tr>
